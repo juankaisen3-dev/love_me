@@ -4,1073 +4,430 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jamelia | Passion Chimie & Robotique ❤️</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Styles personnalisés pour les animations et éléments spécifiques */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
-
+        
         body {
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
         }
-
+        
         h1, h2, h3 {
             font-family: 'Playfair Display', serif;
-            font-weight: 600;
         }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            padding: 15px 5%;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.5s;
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            color: #2c3e50;
-            font-weight: bold;
-            font-size: 1.8em;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo span {
-            color: #e74c3c;
-        }
-
-        .logo i {
-            margin-right: 10px;
-            font-size: 1.5em;
-            color: #e74c3c;
-        }
-
-        .navbar {
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar ul {
-            display: flex;
-            list-style: none;
-        }
-
-        .navbar li {
-            margin: 0 5px;
-            position: relative;
-        }
-
-        .navbar a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .navbar a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #e74c3c;
-            transition: width 0.3s ease;
-        }
-
-        .navbar a:hover::before {
-            width: 100%;
-        }
-
-        .navbar a:hover {
-            color: #e74c3c;
-        }
-
-        /* Menu Hamburger */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: #2c3e50;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Section Bannière */
-        .banniere {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .banniere .contenu {
-            max-width: 800px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .banniere .contenu h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            text-transform: capitalize;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-        }
-
-        .banniere .contenu p {
-            color: #fff;
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        }
-
-        .btn1, .btn2 {
-            font-size: 1em;
-            color: #fff;
-            padding: 12px 30px;
-            display: inline-block;
-            margin: 10px;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn1 {
-            background: #e74c3c;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
-        }
-
-        .btn2 {
-            background: #3498db;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
-        }
-
-        .btn1:hover, .btn2:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn1::after, .btn2::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: rgba(255,255,255,0.2);
-            transition: width 0.3s ease;
-            z-index: -1;
-        }
-
-        .btn1:hover::after, .btn2:hover::after {
-            width: 100%;
-        }
-
-        /* Nom scientifique flottant */
-        .scientific-name {
-            position: absolute;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.5em;
-            animation: float 6s ease-in-out infinite;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-        }
-
-        .scientific-name:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .scientific-name:nth-child(2) {
-            top: 70%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .scientific-name:nth-child(3) {
-            bottom: 20%;
-            left: 15%;
-            animation-delay: 4s;
-        }
-
+        
+        /* Animation pour les noms scientifiques flottants */
         @keyframes float {
             0% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(5deg); }
             100% { transform: translateY(0) rotate(0deg); }
         }
-
-        /* Cœur flottant Daniel_Tech */
-        .floating-heart {
-            position: absolute;
-            font-size: 2em;
-            color: rgba(231, 76, 60, 0.8);
-            animation: floatHeart 8s ease-in-out infinite;
-            z-index: 1;
+        
+        .scientific-name {
+            animation: float 6s ease-in-out infinite;
         }
-
-        .floating-heart:nth-child(1) {
-            top: 15%;
-            right: 15%;
-            animation-delay: 1s;
-        }
-
-        .floating-heart:nth-child(2) {
-            bottom: 25%;
-            right: 20%;
-            animation-delay: 3s;
-        }
-
-        .floating-heart:nth-child(3) {
-            top: 40%;
-            left: 10%;
-            animation-delay: 5s;
-        }
-
+        
+        /* Animation pour les cœurs flottants */
         @keyframes floatHeart {
             0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.7; }
             50% { transform: translateY(-30px) rotate(180deg) scale(1.2); opacity: 1; }
             100% { transform: translateY(0) rotate(360deg) scale(1); opacity: 0.7; }
         }
-
-        /* Sections générales */
-        section {
-            padding: 80px 5%;
+        
+        .floating-heart {
+            animation: floatHeart 8s ease-in-out infinite;
         }
-
-        .titre-section {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .titre-section h2 {
-            font-size: 2.5em;
-            color: #2c3e50;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .titre-section h2::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 3px;
-            background: #e74c3c;
-            bottom: 0;
-            left: 25%;
-        }
-
-        .titre-section span {
-            color: #e74c3c;
-        }
-
-        /* Section À propos */
-        .apropos {
-            background-color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .apropos-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .apropos-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .apropos-text h2 {
-            font-size: 2em;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-
-        .apropos-text p {
-            margin-bottom: 20px;
-            cursor: default;
-            transition: all 0.3s ease;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .apropos-text p:hover {
-            background: rgba(231, 76, 60, 0.05);
-            transform: translateX(5px);
-        }
-
-        .apropos-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-            position: relative;
-        }
-
-        .apropos-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease;
-        }
-
-        .apropos-image:hover img {
-            transform: scale(1.03);
-        }
-
-        /* Section Chimie */
-        .chimie {
-            background-color: #f5f5f5;
-            position: relative;
-        }
-
-        .chimie-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .chimie-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .chimie-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .chimie-image {
-            position: relative;
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .chimie-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .chimie-card:hover .chimie-image img {
-            transform: scale(1.1);
-        }
-
-        .chimie-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(231, 76, 60, 0.8);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.5em;
-            transition: all 0.3s ease;
-        }
-
-        .chimie-card:hover .chimie-icon {
-            background: rgba(231, 76, 60, 1);
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        .chimie-info {
-            padding: 20px;
-        }
-
-        .chimie-info h3 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        /* Section Robotique */
-        .robotique {
-            background-color: #fff;
-            position: relative;
-        }
-
-        .robotique-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .robotique-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .robotique-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .robotique-image {
-            position: relative;
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .robotique-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .robotique-card:hover .robotique-image img {
-            transform: scale(1.1);
-        }
-
-        .robotique-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(52, 152, 219, 0.8);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.5em;
-            transition: all 0.3s ease;
-        }
-
-        .robotique-card:hover .robotique-icon {
-            background: rgba(52, 152, 219, 1);
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        .robotique-info {
-            padding: 20px;
-        }
-
-        .robotique-info h3 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        /* Section Galerie */
-        .galerie {
-            background-color: #f5f5f5;
-            position: relative;
-        }
-
-        .galerie-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .galerie-item {
-            position: relative;
-            height: 250px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        
+        /* Effets de survol personnalisés */
+        .hover-lift:hover {
+            transform: translateY(-5px);
             transition: transform 0.3s ease;
         }
-
-        .galerie-item:hover {
+        
+        .hover-scale:hover {
             transform: scale(1.05);
+            transition: transform 0.3s ease;
         }
-
-        .galerie-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .galerie-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .galerie-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .galerie-item:hover .galerie-overlay {
-            opacity: 1;
-        }
-
-        .galerie-overlay h3 {
-            color: white;
-            text-align: center;
-        }
-
-        /* Section Contact */
-        .contact {
-            background-color: #fff;
-            position: relative;
-        }
-
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: center;
-        }
-
-        .form-container {
-            flex: 1;
-            min-width: 300px;
-            background: #f9f9f9;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #2c3e50;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-            transition: border 0.3s ease;
-        }
-
-        .form-control:focus {
-            border-color: #e74c3c;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
-        }
-
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-            background: #f9f9f9;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-info h3 {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .contact-item i {
-            width: 40px;
-            height: 40px;
-            background: #e74c3c;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 15px;
-        }
-
-        .btn-contact {
-            padding: 12px 30px;
-            background: #e74c3c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
+        
+        /* Styles pour le menu mobile */
+        .mobile-menu {
             transition: all 0.3s ease;
-            text-transform: uppercase;
-            width: 100%;
-            margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-        }
-
-        .btn-contact:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-        }
-
-        /* Footer */
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 50px 5% 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-column h3 {
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background: #e74c3c;
-            bottom: 0;
-            left: 0;
-        }
-
-        .footer-column p, .footer-column a {
-            color: #ccc;
-            margin-bottom: 10px;
-            display: block;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .footer-column a:hover {
-            color: #e74c3c;
-            transform: translateX(5px);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: #e74c3c;
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ccc;
-            font-size: 0.9em;
-        }
-
-        .love-message {
-            text-align: center;
-            margin-top: 10px;
-            font-style: italic;
-            color: #e74c3c;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .navbar ul {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 50px;
-                transition: 0.5s;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            }
-
-            .navbar ul.active {
-                left: 0;
-            }
-
-            .navbar ul li {
-                margin: 15px 0;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .banniere .contenu h1 {
-                font-size: 2.5em;
-            }
-
-            .scientific-name {
-                font-size: 1.2em;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .banniere .contenu h1 {
-                font-size: 2em;
-            }
-
-            .titre-section h2 {
-                font-size: 2em;
-            }
-
-            .apropos-content, .contact-container {
-                flex-direction: column;
-            }
-
-            section {
-                padding: 60px 5%;
-            }
-
-            .scientific-name, .floating-heart {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .banniere .contenu h1 {
-                font-size: 1.8em;
-            }
-
-            .btn1, .btn2 {
-                padding: 10px 20px;
-                font-size: 0.9em;
-            }
-
-            .titre-section h2 {
-                font-size: 1.8em;
-            }
         }
     </style>
+    
+    <script>
+        // Configuration Tailwind personnalisée
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e74c3c',
+                        secondary: '#3498db',
+                        dark: '#2c3e50',
+                        light: '#f9f9f9'
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
     <!-- Header -->
-    <header>
-        <a href="#" class="logo"><i class="fas fa-atom"></i><span>Jamelia</span></a>
+    <header class="fixed top-0 left-0 w-full z-50 bg-white bg-opacity-95 backdrop-blur-sm shadow-md py-4 px-4 md:px-8 lg:px-16 transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center text-xl md:text-2xl font-bold text-dark">
+                <i class="fas fa-atom text-primary mr-2"></i>
+                <span class="text-primary">Jamelia</span>
+            </a>
+            
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center space-x-2 lg:space-x-4">
+                <a href="#accueil" class="px-3 py-2 font-medium text-dark hover:text-primary transition-colors duration-300 relative group">
+                    Accueil
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#apropos" class="px-3 py-2 font-medium text-dark hover:text-primary transition-colors duration-300 relative group">
+                    À propos
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#chimie" class="px-3 py-2 font-medium text-dark hover:text-primary transition-colors duration-300 relative group">
+                    Chimie
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#robotique" class="px-3 py-2 font-medium text-dark hover:text-primary transition-colors duration-300 relative group">
+                    Robotique
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#galerie" class="px-3 py-2 font-medium text-dark hover:text-primary transition-colors duration-300 relative group">
+                    Galerie
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="#contact" class="px-3 py-2 font-medium text-dark hover:text-primary transition-colors duration-300 relative group">
+                    Contact
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+            </nav>
+            
+            <!-- Bouton menu mobile -->
+            <button id="menu-toggle" class="md:hidden flex flex-col space-y-1">
+                <span class="w-6 h-0.5 bg-dark"></span>
+                <span class="w-6 h-0.5 bg-dark"></span>
+                <span class="w-6 h-0.5 bg-dark"></span>
+            </button>
+        </div>
         
-        <div class="navbar">
-            <ul id="navbar-menu">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#apropos">À propos</a></li>
-                <li><a href="#chimie">Chimie</a></li>
-                <li><a href="#robotique">Robotique</a></li>
-                <li><a href="#galerie">Galerie</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="menu-toggle" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="mobile-menu md:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 px-4 transform -translate-y-2 opacity-0 pointer-events-none">
+            <div class="flex flex-col space-y-4">
+                <a href="#accueil" class="py-2 font-medium text-dark hover:text-primary transition-colors duration-300">Accueil</a>
+                <a href="#apropos" class="py-2 font-medium text-dark hover:text-primary transition-colors duration-300">À propos</a>
+                <a href="#chimie" class="py-2 font-medium text-dark hover:text-primary transition-colors duration-300">Chimie</a>
+                <a href="#robotique" class="py-2 font-medium text-dark hover:text-primary transition-colors duration-300">Robotique</a>
+                <a href="#galerie" class="py-2 font-medium text-dark hover:text-primary transition-colors duration-300">Galerie</a>
+                <a href="#contact" class="py-2 font-medium text-dark hover:text-primary transition-colors duration-300">Contact</a>
             </div>
         </div>
     </header>
 
     <!-- Section Bannière -->
-    <section class="banniere" id="accueil">
-        <div class="scientific-name">Jamelia Scientífica</div>
-        <div class="scientific-name">Jamelia Roboticus</div>
-        <div class="scientific-name">Jamelia Chemica</div>
+    <section id="accueil" class="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+        <!-- Noms scientifiques flottants -->
+        <div class="scientific-name absolute top-1/4 left-1/10 text-white italic text-lg md:text-xl opacity-70" style="animation-delay: 0s;">Jamelia Scientífica</div>
+        <div class="scientific-name absolute top-3/4 right-1/10 text-white italic text-lg md:text-xl opacity-70" style="animation-delay: 2s;">Jamelia Roboticus</div>
+        <div class="scientific-name absolute bottom-1/5 left-1/5 text-white italic text-lg md:text-xl opacity-70" style="animation-delay: 4s;">Jamelia Chemica</div>
         
         <!-- Cœurs flottants Daniel_Tech -->
-        <div class="floating-heart">❤️</div>
-        <div class="floating-heart">❤️</div>
-        <div class="floating-heart">❤️</div>
+        <div class="floating-heart absolute top-1/5 right-1/5 text-primary text-2xl md:text-3xl" style="animation-delay: 1s;">❤️</div>
+        <div class="floating-heart absolute bottom-1/4 right-1/4 text-primary text-2xl md:text-3xl" style="animation-delay: 3s;">❤️</div>
+        <div class="floating-heart absolute top-2/5 left-1/10 text-primary text-2xl md:text-3xl" style="animation-delay: 5s;">❤️</div>
         
-        <div class="contenu">
-            <h1>Jamelia : Passion Chimie & Robotique ❤️</h1>
-            <p>Élève en 1ère C passionnée par les mystères de la matière et les innovations technologiques</p>
-            <a href="#apropos" class="btn1">Découvrir</a>
-            <a href="#contact" class="btn2">Me contacter</a>
+        <div class="container mx-auto px-4 text-center text-white z-10">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Jamelia : Passion Chimie & Robotique ❤️</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Élève en 1ère C passionnée par les mystères de la matière et les innovations technologiques</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#apropos" class="bg-primary hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover-lift transition-all duration-300">Découvrir</a>
+                <a href="#contact" class="bg-secondary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover-lift transition-all duration-300">Me contacter</a>
+            </div>
         </div>
     </section>
 
     <!-- Section À propos -->
-    <section class="apropos" id="apropos">
-        <div class="titre-section">
-            <h2><span>À</span> propos de Jamelia</h2>
-        </div>
-        <div class="apropos-content">
-            <div class="apropos-text">
-                <h2>Ma Passion Scientifique</h2>
-                <p>Je m'appelle Jamelia, j'ai 17 ans et je suis en classe de 1ère C au Cameroun. Depuis mon plus jeune âge, je suis fascinée par les sciences, particulièrement la chimie et la robotique.</p>
-                <p>La chimie me passionne car elle permet de comprendre la composition de notre monde au niveau moléculaire. J'adore réaliser des expériences et observer les réactions chimiques qui se produisent.</p>
-                <p>La robotique représente pour moi l'avenir de la technologie. Je suis captivée par la façon dont on peut créer des machines intelligentes qui peuvent nous aider dans notre quotidien.</p>
-                <p>Mon rêve est de devenir ingénieure en robotique médicale pour créer des dispositifs qui sauvent des vies, en combinant mes deux passions.</p>
+    <section id="apropos" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4 relative inline-block">
+                    <span class="text-primary">À</span> propos de Jamelia
+                    <span class="absolute bottom-0 left-1/4 w-1/2 h-1 bg-primary"></span>
+                </h2>
             </div>
-            <div class="apropos-image">
-                <img src="https://images.unsplash.com/photo-1581094794329-c6dbb6c8d0d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Jamelia en laboratoire">
+            
+            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-bold text-dark mb-6">Ma Passion Scientifique</h3>
+                    <div class="space-y-4">
+                        <p class="p-3 rounded-lg hover:bg-red-50 transition-all duration-300 cursor-default">Je m'appelle Jamelia, j'ai 17 ans et je suis en classe de 1ère C au Cameroun. Depuis mon plus jeune âge, je suis fascinée par les sciences, particulièrement la chimie et la robotique.</p>
+                        <p class="p-3 rounded-lg hover:bg-red-50 transition-all duration-300 cursor-default">La chimie me passionne car elle permet de comprendre la composition de notre monde au niveau moléculaire. J'adore réaliser des expériences et observer les réactions chimiques qui se produisent.</p>
+                        <p class="p-3 rounded-lg hover:bg-red-50 transition-all duration-300 cursor-default">La robotique représente pour moi l'avenir de la technologie. Je suis captivée par la façon dont on peut créer des machines intelligentes qui peuvent nous aider dans notre quotidien.</p>
+                        <p class="p-3 rounded-lg hover:bg-red-50 transition-all duration-300 cursor-default">Mon rêve est de devenir ingénieure en robotique médicale pour créer des dispositifs qui sauvent des vies, en combinant mes deux passions.</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="rounded-xl overflow-hidden shadow-xl hover-scale transition-all duration-300">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c6dbb6c8d0d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Jamelia en laboratoire" class="w-full h-auto">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Section Chimie -->
-    <section class="chimie" id="chimie">
-        <div class="titre-section">
-            <h2>Passion <span>Chimie</span></h2>
-        </div>
-        <div class="chimie-container">
-            <div class="chimie-card">
-                <div class="chimie-image">
-                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Synthèse organique">
-                    <div class="chimie-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                </div>
-                <div class="chimie-info">
-                    <h3>Expériences Chimiques</h3>
-                    <p>J'adore réaliser des expériences en laboratoire pour comprendre les réactions chimiques et leurs applications dans la vie quotidienne.</p>
-                </div>
+    <section id="chimie" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4 relative inline-block">
+                    Passion <span class="text-primary">Chimie</span>
+                    <span class="absolute bottom-0 left-1/4 w-1/2 h-1 bg-primary"></span>
+                </h2>
             </div>
-            <div class="chimie-card">
-                <div class="chimie-image">
-                    <img src="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Chimie analytique">
-                    <div class="chimie-icon">
-                        <i class="fas fa-vial"></i>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Carte 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift transition-all duration-300 cursor-pointer">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Expériences chimiques" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <i class="fas fa-flask text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">Expériences Chimiques</h3>
+                        <p class="text-gray-600">J'adore réaliser des expériences en laboratoire pour comprendre les réactions chimiques et leurs applications dans la vie quotidienne.</p>
                     </div>
                 </div>
-                <div class="chimie-info">
-                    <h3>Chimie Analytique</h3>
-                    <p>J'étudie les techniques d'analyse pour identifier et quantifier les substances chimiques, ce qui est essentiel dans de nombreux domaines.</p>
-                </div>
-            </div>
-            <div class="chimie-card">
-                <div class="chimie-image">
-                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Chimie verte">
-                    <div class="chimie-icon">
-                        <i class="fas fa-leaf"></i>
+                
+                <!-- Carte 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift transition-all duration-300 cursor-pointer">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Chimie analytique" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <i class="fas fa-vial text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">Chimie Analytique</h3>
+                        <p class="text-gray-600">J'étudie les techniques d'analyse pour identifier et quantifier les substances chimiques, ce qui est essentiel dans de nombreux domaines.</p>
                     </div>
                 </div>
-                <div class="chimie-info">
-                    <h3>Chimie Verte</h3>
-                    <p>Je m'intéresse particulièrement à la chimie durable qui respecte l'environnement et cherche des solutions écologiques.</p>
+                
+                <!-- Carte 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift transition-all duration-300 cursor-pointer">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Chimie verte" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <i class="fas fa-leaf text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">Chimie Verte</h3>
+                        <p class="text-gray-600">Je m'intéresse particulièrement à la chimie durable qui respecte l'environnement et cherche des solutions écologiques.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section Robotique -->
-    <section class="robotique" id="robotique">
-        <div class="titre-section">
-            <h2>Passion <span>Robotique</span></h2>
-        </div>
-        <div class="robotique-container">
-            <div class="robotique-card">
-                <div class="robotique-image">
-                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Robotique médicale">
-                    <div class="robotique-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                </div>
-                <div class="robotique-info">
-                    <h3>Robotique Médicale</h3>
-                    <p>Je rêve de concevoir des robots qui assistent les chirurgiens et aident à sauver des vies dans les hôpitaux.</p>
-                </div>
+    <section id="robotique" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4 relative inline-block">
+                    Passion <span class="text-primary">Robotique</span>
+                    <span class="absolute bottom-0 left-1/4 w-1/2 h-1 bg-primary"></span>
+                </h2>
             </div>
-            <div class="robotique-card">
-                <div class="robotique-image">
-                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Automatisation">
-                    <div class="robotique-icon">
-                        <i class="fas fa-cogs"></i>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Carte 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift transition-all duration-300 cursor-pointer">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Robotique médicale" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-secondary bg-opacity-80 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <i class="fas fa-robot text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">Robotique Médicale</h3>
+                        <p class="text-gray-600">Je rêve de concevoir des robots qui assistent les chirurgiens et aident à sauver des vies dans les hôpitaux.</p>
                     </div>
                 </div>
-                <div class="robotique-info">
-                    <h3>Programmation Robotique</h3>
-                    <p>J'apprends à programmer des robots pour qu'ils puissent effectuer des tâches complexes de manière autonome.</p>
-                </div>
-            </div>
-            <div class="robotique-card">
-                <div class="robotique-image">
-                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Bio-robotique">
-                    <div class="robotique-icon">
-                        <i class="fas fa-dna"></i>
+                
+                <!-- Carte 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift transition-all duration-300 cursor-pointer">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Programmation robotique" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-secondary bg-opacity-80 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <i class="fas fa-cogs text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">Programmation Robotique</h3>
+                        <p class="text-gray-600">J'apprends à programmer des robots pour qu'ils puissent effectuer des tâches complexes de manière autonome.</p>
                     </div>
                 </div>
-                <div class="robotique-info">
-                    <h3>Robotique Éducative</h3>
-                    <p>Je participe à des ateliers de robotique où nous construisons et programmons nos propres robots.</p>
+                
+                <!-- Carte 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift transition-all duration-300 cursor-pointer">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Robotique éducative" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-secondary bg-opacity-80 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <i class="fas fa-dna text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3">Robotique Éducative</h3>
+                        <p class="text-gray-600">Je participe à des ateliers de robotique où nous construisons et programmons nos propres robots.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section Galerie -->
-    <section class="galerie" id="galerie">
-        <div class="titre-section">
-            <h2>Ma <span>Galerie</span></h2>
-        </div>
-        <div class="galerie-container">
-            <div class="galerie-item">
-                <img src="https://images.unsplash.com/photo-1581094794329-c6dbb6c8d0d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Expériences en laboratoire">
-                <div class="galerie-overlay">
-                    <h3>Expériences en Laboratoire</h3>
-                </div>
+    <section id="galerie" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4 relative inline-block">
+                    Ma <span class="text-primary">Galerie</span>
+                    <span class="absolute bottom-0 left-1/4 w-1/2 h-1 bg-primary"></span>
+                </h2>
             </div>
-            <div class="galerie-item">
-                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Réactions chimiques">
-                <div class="galerie-overlay">
-                    <h3>Réactions Chimiques</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Image 1 -->
+                <div class="relative rounded-xl overflow-hidden shadow-lg hover-scale transition-all duration-300 h-64">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c6dbb6c8d0d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Expériences en laboratoire" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-white text-xl font-bold text-center">Expériences en Laboratoire</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="galerie-item">
-                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Projets robotiques">
-                <div class="galerie-overlay">
-                    <h3>Projets Robotiques</h3>
+                
+                <!-- Image 2 -->
+                <div class="relative rounded-xl overflow-hidden shadow-lg hover-scale transition-all duration-300 h-64">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Réactions chimiques" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-white text-xl font-bold text-center">Réactions Chimiques</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="galerie-item">
-                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Conférences scientifiques">
-                <div class="galerie-overlay">
-                    <h3>Conférences Scientifiques</h3>
+                
+                <!-- Image 3 -->
+                <div class="relative rounded-xl overflow-hidden shadow-lg hover-scale transition-all duration-300 h-64">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Projets robotiques" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-white text-xl font-bold text-center">Projets Robotiques</h3>
+                    </div>
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="relative rounded-xl overflow-hidden shadow-lg hover-scale transition-all duration-300 h-64">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Conférences scientifiques" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-white text-xl font-bold text-center">Conférences Scientifiques</h3>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section Contact -->
-    <section class="contact" id="contact">
-        <div class="titre-section">
-            <h2>Me <span>Contacter</span></h2>
-        </div>
-        <div class="contact-container">
-            <div class="form-container">
-                <h3>Envoyez-moi un message</h3>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="nom">Nom complet</label>
-                        <input type="text" id="nom" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="sujet">Sujet</label>
-                        <input type="text" id="sujet" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" class="form-control" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-contact">Envoyer le message</button>
-                </form>
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4 relative inline-block">
+                    Me <span class="text-primary">Contacter</span>
+                    <span class="absolute bottom-0 left-1/4 w-1/2 h-1 bg-primary"></span>
+                </h2>
             </div>
-            <div class="contact-info">
-                <h3>Mes coordonnées</h3>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <p>Adresse</p>
-                        <p>Cameroun, Yaoundé</p>
-                    </div>
+            
+            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+                <!-- Formulaire -->
+                <div class="lg:w-1/2 bg-gray-50 p-6 md:p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-dark mb-6">Envoyez-moi un message</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="nom" class="block text-dark font-medium mb-2">Nom complet</label>
+                            <input type="text" id="nom" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-dark font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="sujet" class="block text-dark font-medium mb-2">Sujet</label>
+                            <input type="text" id="sujet" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-dark font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover-lift transition-all duration-300">Envoyer le message</button>
+                    </form>
                 </div>
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp"></i>
-                    <div>
-                        <p>WhatsApp</p>
-                        <a href="https://wa.me/237659278346" target="_blank">+237 6 59 27 83 46</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <p>Email</p>
-                        <a href="mailto:jamelia.science@example.com">jamelia.science@example.com</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-graduation-cap"></i>
-                    <div>
-                        <p>Niveau scolaire</p>
-                        <p>1ère C - Lycée</p>
+                
+                <!-- Informations de contact -->
+                <div class="lg:w-1/2 bg-gray-50 p-6 md:p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-dark mb-6">Mes coordonnées</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-dark">Adresse</p>
+                                <p class="text-gray-600">Cameroun, Yaoundé</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-dark">WhatsApp</p>
+                                <a href="https://wa.me/237659278346" target="_blank" class="text-gray-600 hover:text-primary transition-colors duration-300">+237 6 59 27 83 46</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-dark">Email</p>
+                                <a href="mailto:jamelia.science@example.com" class="text-gray-600 hover:text-primary transition-colors duration-300">jamelia.science@example.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-dark">Niveau scolaire</p>
+                                <p class="text-gray-600">1ère C - Lycée</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1078,64 +435,97 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Jamelia Science</h3>
-                <p>Élève en 1ère C passionnée par la chimie et la robotique. Mon rêve est de devenir ingénieure en robotique médicale.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Colonne 1 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 relative pb-2">
+                        Jamelia Science
+                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-primary"></span>
+                    </h3>
+                    <p class="text-gray-300 mb-4">Élève en 1ère C passionnée par la chimie et la robotique. Mon rêve est de devenir ingénieure en robotique médicale.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-700 hover:bg-primary text-white p-2 rounded-full transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-primary text-white p-2 rounded-full transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-primary text-white p-2 rounded-full transition-colors duration-300">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-primary text-white p-2 rounded-full transition-colors duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Colonne 2 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 relative pb-2">
+                        Liens Rapides
+                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-primary"></span>
+                    </h3>
+                    <div class="space-y-2">
+                        <a href="#accueil" class="block text-gray-300 hover:text-primary transition-colors duration-300">Accueil</a>
+                        <a href="#apropos" class="block text-gray-300 hover:text-primary transition-colors duration-300">À propos</a>
+                        <a href="#chimie" class="block text-gray-300 hover:text-primary transition-colors duration-300">Chimie</a>
+                        <a href="#robotique" class="block text-gray-300 hover:text-primary transition-colors duration-300">Robotique</a>
+                        <a href="#galerie" class="block text-gray-300 hover:text-primary transition-colors duration-300">Galerie</a>
+                        <a href="#contact" class="block text-gray-300 hover:text-primary transition-colors duration-300">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Colonne 3 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 relative pb-2">
+                        Domaines d'intérêt
+                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-primary"></span>
+                    </h3>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-gray-300 hover:text-primary transition-colors duration-300">Expériences chimiques</a>
+                        <a href="#" class="block text-gray-300 hover:text-primary transition-colors duration-300">Programmation robotique</a>
+                        <a href="#" class="block text-gray-300 hover:text-primary transition-colors duration-300">Robotique médicale</a>
+                        <a href="#" class="block text-gray-300 hover:text-primary transition-colors duration-300">Chimie verte</a>
+                        <a href="#" class="block text-gray-300 hover:text-primary transition-colors duration-300">Innovations technologiques</a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-column">
-                <h3>Liens Rapides</h3>
-                <a href="#accueil">Accueil</a>
-                <a href="#apropos">À propos</a>
-                <a href="#chimie">Chimie</a>
-                <a href="#robotique">Robotique</a>
-                <a href="#galerie">Galerie</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="footer-column">
-                <h3>Domaines d'intérêt</h3>
-                <a href="#">Expériences chimiques</a>
-                <a href="#">Programmation robotique</a>
-                <a href="#">Robotique médicale</a>
-                <a href="#">Chimie verte</a>
-                <a href="#">Innovations technologiques</a>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2025 Jamelia Science. Tous droits réservés.
-            by bb Daniel</p>
-            <div class="love-message">
-                <p>Créé avec ❤️ par Daniel_Tech pour sa merveilleuse Jamelia</p>
+            
+            <div class="pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-300">&copy; 2025 Jamelia Science. Tous droits réservés.</p>
+                <p class="text-primary italic mt-2">Créé avec ❤️ par Daniel_Tech pour sa merveilleuse Jamelia</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Menu mobile toggle
+        // Gestion du menu mobile
         const menuToggle = document.getElementById('menu-toggle');
-        const navbarMenu = document.getElementById('navbar-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
         
         menuToggle.addEventListener('click', () => {
-            navbarMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+            const isOpen = mobileMenu.classList.contains('opacity-0');
+            
+            if (isOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            } else {
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+            }
         });
-
+        
         // Fermer le menu mobile en cliquant sur un lien
-        const navLinks = document.querySelectorAll('.navbar a');
-        navLinks.forEach(link => {
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navbarMenu.classList.remove('active');
-                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
             });
         });
-
+        
         // API de contact
         const contactForm = document.getElementById('contact-form');
         
@@ -1173,30 +563,28 @@
                 btnSubmit.disabled = false;
             }, 2000);
         });
-
+        
         // Animation du header au scroll
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.padding = '10px 5%';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                header.classList.add('py-3', 'shadow-lg');
+                header.classList.remove('py-4');
             } else {
-                header.style.padding = '15px 5%';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                header.classList.remove('py-3', 'shadow-lg');
+                header.classList.add('py-4');
             }
         });
-
+        
         // Effets de survol pour les paragraphes
-        const paragraphs = document.querySelectorAll('.apropos-text p');
+        const paragraphs = document.querySelectorAll('#apropos p');
         paragraphs.forEach(p => {
             p.addEventListener('mouseenter', () => {
-                p.style.transform = 'translateX(5px)';
-                p.style.background = 'rgba(231, 76, 60, 0.05)';
+                p.classList.add('translate-x-2');
             });
             
             p.addEventListener('mouseleave', () => {
-                p.style.transform = 'translateX(0)';
-                p.style.background = 'transparent';
+                p.classList.remove('translate-x-2');
             });
         });
     </script>
